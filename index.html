@@ -2,12 +2,15 @@
 <html>
     <head>
        <meta charset="utf-8">
-       <title>OBJ brain</title>
-            <script src="aframe.js"></script>
-            <script src="dist/aframe-obj-loader-component.js"></script>
+       <title>Brain</title>
+        <meta name="description" content="Aframe">
+        <script src="aframe.js"></script>
+        <script src="dist/aframe-obj-loader-component.js"></script>
     </head>
     <body>
-            <a-entity position= "5 0 -10" obj-loader="src: url(./wholeBrain.obj)";>
+        <a-scene>
+            <a-entity position= "5 0 -10" obj-loader="src: url(./wholeBrain.obj); mtl:url(./wholeBrain.mtl);">
             </a-entity>
+        </a-scene>
     </body>
 </html>
