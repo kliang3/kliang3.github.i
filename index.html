@@ -9,15 +9,28 @@
     </head>
     <body>
         <a-scene>
-            <a-entity position= "5 0 -20" 
+        <!-- Whole Brain 
+            <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
                 material="color: #ffffe5; opacity: 1"
                 obj-loader="src: url(./wholeBrain.obj);">
                      <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="15000"repeat="indefinite" easing="linear"></a-animation>
+
+                     --> 
+        <!-- Cerebellum --> 
+            </a-entity>
+              <a-entity position= "0 0 -20" 
+                scale= "0.1 0.1 0.1"
+                rotation= "90 0 0"
+                material="opacity: 1"
+                obj-loader="src: url(./CerebellumProper.obj);">
+                     <a-animation attribute="rotation" from="0 0 0" to="0 360 0" dur="15000"repeat="indefinite" easing="linear"></a-animation>
             </a-entity>
 
-         <a-sky color="#f2f2f2"></a-sky>
-         
+        
+
+         <a-sky color="#bb99ff"></a-sky>
+         a
         </a-scene>
     </body>
 </html>
