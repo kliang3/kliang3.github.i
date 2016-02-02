@@ -8,12 +8,18 @@
         <script src="dist/aframe-obj-loader-component.js"></script>
     </head>
     <body>
-        <a-scene>
-        
+        <a-scene>s
+              <a-entity position="0 1.8 10">
+                  <a-entity camera look-controls wasd-controls>
+                    <a-animation attribute="position" from"0 0 0" to="0 -10 -50" repeat="indefinite" ease="linear" begin="5000" dur="50000"></a-animation>
+                </a-entity>
+              </a-entity>
+
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
                 material="color: #ffffe5; opacity: 0.5"
                 obj-loader="src: url(./wholeBrain.obj);">
+                   <a-animation attribute="position" from"0 0 0" to="0 0 -20" repeat="indefinite" ease="linear" begin="10000" dur="1"></a-animation>
             </a-entity>
               <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
@@ -65,6 +71,7 @@
             </a-entity>
 
           <a-light position="-1 1 0"></a-light>
+  
 
          <a-sky color="#bb99ff"></a-sky>
 
