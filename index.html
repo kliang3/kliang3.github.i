@@ -2,85 +2,77 @@
 <html>
     <head>
        <meta charset="utf-8">
-       <title>FSurfer_Brain</title>
+       <title>2FSurfer_Brain</title>
         <meta name="description" content="Aframe">
         <script src="https://aframe.io/releases/latest/aframe.js"></script>
         <script src="dist/aframe-obj-loader-component.js"></script>
     </head>
     <body>
         <a-scene>
-              <a-entity id= "camera" position="0 0 -40" rotation= "0 180 0">
-                  <a-entity camera look-controls="enabled: true" cursor-visible="enabled: true" wasd-controls="enabled: true">
-                    <a-entity cursor="fuse: true; timeout: 100" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03" material="color: blue" position="0 0 -2">
-                </a-entity>
+             
+
+         <a-entity id="link" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: false" position="0 3 0"></a-entity>
+          <a-entity id="camera" position="0 1.8 5">
+            <a-entity camera look-controls="true">
+              <a-entity cursor="fuse: true; timeout: 100" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.05" material="color: red" position="0 0 -2"></a-entity>
             </a-entity>
-                     <a-animation attribute="position" begin="nlinkF" to="20 0 -20" easing="linear" dur="1"></a-animation>
-                     <a-animation attribute="position" begin="nlinkR" to="0 0 40" easing="linear" dur="1"></a-animation>   
-                     <a-animation attribute="position" begin="nlinkB" to="-20 0 20" easing="linear" dur="1"></a-animation>   
-                     <a-animation attribute="position" begin="nlinkL" to="20 0 -20" easing="linear" dur="1"></a-animation>  
-              </a-entity>
-            
+            <a-animation attribute="position" begin="navigate-to-link" to="0 2 2" dur="5000"></a-animation>          
+          </a-entity>
 
 
-            <a-entity id="linkR" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="20 0 -20"></a-entity>   
-
-            <a-entity id="linkL" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="-20 0 -20"></a-entity>  
-
-            <a-entity id="linkB" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="0 0 40"></a-entity>  
-
-            <a-entity id="linkF" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="0 0 -40"></a-entity>     
-
+           
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
+                rotation="0 180 0"
                 material="color: #ffffe5; opacity: 0.5"
                 obj-loader="src: url(./wholeBrain.obj);">
                    <a-animation attribute="position" from"0 0 0" to="0 0 -20" repeat="indefinite" ease="linear" begin="10000" dur="1"></a-animation>
             </a-entity>
               <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: red; opacity: 1"
                 obj-loader="src: url(./CerebellumProper.obj);">
             </a-entity>
              <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: blue; opacity: 1"
                 obj-loader="src: url(./amygdala.obj);">
             </a-entity>
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: green; opacity: 1"
                 obj-loader="src: url(./aseg_016.obj);">
             </a-entity>
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: yellow; opacity: 1"
                 obj-loader="src: url(./CC2.obj);">
             </a-entity>
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: pink; opacity: 1"
                 obj-loader="src: url(./cerebellum.obj);">
             </a-entity>
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: black; opacity: 1"
                 obj-loader="src: url(./hippocampus.obj);">
             </a-entity>
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: white; opacity: 1"
                 obj-loader="src: url(./hippo.obj);">
             </a-entity>
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
-                rotation= "270 0 0"
+                rotation= "270 180 0"
                 material="color: orange; opacity: 1"
                 obj-loader="src: url(./Putamen.obj);">
             </a-entity>
@@ -94,21 +86,12 @@
 
         </a-scene>
 
-        <script language="javascript">
-                document.querySelector('#linkR').addEventListener('click', function () {
-                document.querySelector('#camera').emit('nlinkR');
-                });
-                document.querySelector('#linkB').addEventListener('click', function () {
-                document.querySelector('#camera').emit('nlinkB');
-                });
-                document.querySelector('#linkL').addEventListener('click', function () {
-                document.querySelector('#camera').emit('nlinkL');
-                });
-                document.querySelector('#linkF').addEventListener('click', function () {
-                document.querySelector('#camera').emit('nlinkF');
-                });
-        </script> 
+  <script language="javascript">
 
+document.querySelector('#link').addEventListener('click', function () {
+  document.querySelector('#camera').emit('navigate-to-link');
+});
+</script>
 
     </body>
 </html>
