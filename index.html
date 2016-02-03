@@ -2,18 +2,33 @@
 <html>
     <head>
        <meta charset="utf-8">
-       <title>2FSurfer_Brain</title>
+       <title>FSurfer_Brain</title>
         <meta name="description" content="Aframe">
         <script src="https://aframe.io/releases/latest/aframe.js"></script>
         <script src="dist/aframe-obj-loader-component.js"></script>
     </head>
     <body>
-        <a-scene>s
-              <a-entity position="0 1.8 10">
-                  <a-entity camera look-controls wasd-controls>
-                    <a-animation attribute="position" from"0 0 0" to="0 -10 -50" repeat="indefinite" ease="linear" begin="5000" dur="50000"></a-animation>
+        <a-scene>
+              <a-entity id= "camera" position="0 0 -40" rotation= "0 180 0">
+                  <a-entity camera look-controls="enabled: true" cursor-visible="enabled: true" wasd-controls="enabled: true">
+                    <a-entity cursor="fuse: true; timeout: 100" geometry="primitive: ring; radiusInner: 0.01; radiusOuter: 0.03" material="color: blue" position="0 0 -2">
                 </a-entity>
+            </a-entity>
+                     <a-animation attribute="position" begin="nlinkF" to="20 0 -20" easing="linear" dur="1"></a-animation>
+                     <a-animation attribute="position" begin="nlinkR" to="0 0 40" easing="linear" dur="1"></a-animation>   
+                     <a-animation attribute="position" begin="nlinkB" to="-20 0 20" easing="linear" dur="1"></a-animation>   
+                     <a-animation attribute="position" begin="nlinkL" to="20 0 -20" easing="linear" dur="1"></a-animation>  
               </a-entity>
+            
+
+
+            <a-entity id="linkR" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="20 0 -20"></a-entity>   
+
+            <a-entity id="linkL" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="-20 0 -20"></a-entity>  
+
+            <a-entity id="linkB" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="0 0 40"></a-entity>  
+
+            <a-entity id="linkF" geometry="primitive: sphere; radius: 0.5" material="color: #000; opacity: 0.8; transparent: true" position="0 0 -40"></a-entity>     
 
             <a-entity position= "0 0 -20" 
                 scale= "0.1 0.1 0.1"
@@ -78,5 +93,22 @@
       
 
         </a-scene>
+
+        <script language="javascript">
+                document.querySelector('#linkR').addEventListener('click', function () {
+                document.querySelector('#camera').emit('nlinkR');
+                });
+                document.querySelector('#linkB').addEventListener('click', function () {
+                document.querySelector('#camera').emit('nlinkB');
+                });
+                document.querySelector('#linkL').addEventListener('click', function () {
+                document.querySelector('#camera').emit('nlinkL');
+                });
+                document.querySelector('#linkF').addEventListener('click', function () {
+                document.querySelector('#camera').emit('nlinkF');
+                });
+        </script> 
+
+
     </body>
 </html>
